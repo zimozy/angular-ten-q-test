@@ -1,0 +1,22 @@
+<h1>Angular Interview Questions</h1>
+<p class="lead">Get 8 out of 10 correct to pass</p>
+<hr class="mb-5">
+
+<div *ngFor="let question of questions; let i = index" class="form-group">
+
+  <h5>{{question.title}}</h5>
+
+  <form>
+
+    <div *ngFor="let answer of question.answers; let j = index" class="form-check">
+
+      <input type="radio" name="question-{{i}}" id="answer-{{i}}-{{j}}" value="{{j}}" [(ngModel)]="question.chosenAnswer">
+
+      <label for="answer-{{i}}-{{j}}">{{answer}}</label>
+    </div>
+
+  </form>
+
+</div>
+
+<button class="btn btn-success" (click)="calculateScore()">Calculate My Score</button>
